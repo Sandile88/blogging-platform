@@ -1,4 +1,4 @@
-package com.blogging.platform.blogging_platform;
+package com.blogging.platform;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
