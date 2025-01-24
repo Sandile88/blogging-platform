@@ -1,7 +1,11 @@
 package com.blogging.platform.models;
 
-import jakarta.persistence.*;
+import java.time.LocalDateTime;
 
+import jakarta.persistence.*;
+import lombok.Data;
+
+@Data
 @Entity
 @Table(name = "auth")
 public class Auth {
@@ -10,6 +14,10 @@ public class Auth {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    
+    private Long userId;
+    private String token;
+    private String refreshToken;
+    private LocalDateTime createdAt;
+    private LocalDateTime expiresAt;
 
 }

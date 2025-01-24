@@ -1,9 +1,10 @@
 package com.blogging.platform.models;
 
 import jakarta.persistence.*;
-import jakarta.validation.constraints.Email;
-import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.*;
+import lombok.Data;
 
+@Data
 @Entity
 @Table(name = "users")
 public class User {
@@ -13,45 +14,15 @@ public class User {
     private Long id;
 
     @NotEmpty
-    @Column
+    @Column(nullable = false, unique = true)
     private String username;
 
     @NotEmpty
-    @Email(message = "Email is not supposed to be null or empty")
+    @Column(nullable = false, unique = true)
     private String email;
 
-   
-
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    
-
-
-
-
+    @NotEmpty
+    @Size(min = 8, message = "Password should be a minimum of 8 characters")
+    @Column(nullable = false)
+    private String password;
 }

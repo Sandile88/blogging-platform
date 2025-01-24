@@ -1,10 +1,13 @@
 package com.blogging.platform.models;
 
 
-import org.springframework.format.annotation.DateTimeFormat;
+
+import java.time.LocalDateTime;
 
 import jakarta.persistence.*;
+import lombok.Data;
 
+@Data
 @Entity
 @Table(name = "comments")
 public class Comment {
@@ -12,13 +15,10 @@ public class Comment {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
     private Long userId;
     private Long blogId;
-    private DateTimeFormat createdAt;
-    private DateTimeFormat updateddAt;
-
-
-    
+    private Long parentId; //for nested comments
+    private LocalDateTime createdAt;
+    private LocalDateTime updateddAt;
 
 }
