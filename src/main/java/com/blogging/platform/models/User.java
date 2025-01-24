@@ -13,6 +13,9 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    private String name;
+    private String surname;
+
     @NotEmpty
     @Column(nullable = false, unique = true)
     private String username;
@@ -25,4 +28,5 @@ public class User {
     @Size(min = 8, message = "Password should be a minimum of 8 characters")
     @Column(nullable = false)
     private String password;
+
 }
