@@ -1,12 +1,13 @@
 package com.blogging.platform.services.auth;
 
+import com.blogging.platform.payload.AuthDto;
 import com.blogging.platform.payload.LoginReq;
 import com.blogging.platform.payload.RegisterReq;
 
 public interface AuthSvc {
-    String loginUser(LoginReq loginReq );
-    String registerUser(RegisterReq RegisterReq );
-    String refreshToken(String refreshToken);
-    String logoutUser(String token);
+    AuthDto loginUser(LoginReq loginReq );
+    AuthDto registerUser(RegisterReq RegisterReq );
+    AuthDto refreshToken(String refreshToken);
+    void logoutUser(String token);
 
 }

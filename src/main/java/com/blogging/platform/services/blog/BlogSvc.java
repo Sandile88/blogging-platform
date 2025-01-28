@@ -7,10 +7,10 @@ import com.blogging.platform.payload.BlogResDto;
 
 public interface BlogSvc {
 
-    BlogCreateDto createBlog(BlogCreateDto blogDto);
+    BlogResDto createBlog(BlogCreateDto blogDto);
     BlogResDto getBlog(Long blogId);
-    List<BlogResDto> getAllBlogs(int pageNum, int PageSize);
-    BlogResDto updateBlog(Long id, BlogResDto blogDto);
-    BlogResDto deleteBlog(Long blogId);
-    BlogResDto likeBlog(Long blogId, Long userId); 
+    List<BlogResDto> getAllBlogs(int pageNum, int pageSize);
+    BlogResDto updateBlog(Long id, BlogCreateDto blogDto);
+    void deleteBlog(Long blogId);
+    BlogResDto toggleBlogLike(Long blogId, Long userId); 
 }
