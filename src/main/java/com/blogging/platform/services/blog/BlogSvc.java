@@ -2,14 +2,15 @@ package com.blogging.platform.services.blog;
 
 import java.util.List;
 
-import com.blogging.platform.payload.BlogDto;
+import com.blogging.platform.payload.BlogCreateDto;
+import com.blogging.platform.payload.BlogResDto;
 
 public interface BlogSvc {
 
-    BlogDto createBlog(BlogDto blogDto);
-    BlogDto getBlog(Long blogId);
-    List<BlogDto> getAllBlogs(int pageNum, int PageSize);
-    BlogDto updateBlog(Long id, BlogDto blogDto);
-    BlogDto deleteBlog(Long blogId);
-    BlogDto likeBlog(Long blogId, Long userId); 
+    BlogCreateDto createBlog(BlogCreateDto blogDto);
+    BlogResDto getBlog(Long blogId);
+    List<BlogResDto> getAllBlogs(int pageNum, int PageSize);
+    BlogResDto updateBlog(Long id, BlogResDto blogDto);
+    BlogResDto deleteBlog(Long blogId);
+    BlogResDto likeBlog(Long blogId, Long userId); 
 }
