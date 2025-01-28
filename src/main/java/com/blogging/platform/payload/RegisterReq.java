@@ -1,5 +1,8 @@
 package com.blogging.platform.payload;
 
+import lombok.Data;
+
+@Data
 public class RegisterReq {
 
     private String name;

@@ -19,6 +19,7 @@ public class BlogDto {
 
     @NotNull(message = "User ID is required")
     private Long userId;
+    private String username; 
     private List<String> tags;
     private Long likes;
     private Long views;

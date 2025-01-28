@@ -16,6 +16,7 @@ public class CommentDto {
 
     private Long blogId;
     private Long parentId;
+    private String content;
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
 }

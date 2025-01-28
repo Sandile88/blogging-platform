@@ -14,9 +14,18 @@ public class Blog {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @OneToMany(mappedBy = "blog", cascade = CascadeType.ALL)
+    private List<Comment> comments;
+
+    @ManyToOne
+    @JoinColumn(name = "user_id", nullable = false)
+    private User user; 
+
+    
     private String title;
     private String content;
-    private Long userId;
+    private User userId; 
     private List<String> tags;
     private Long likes;
     private Long views;
