@@ -19,25 +19,22 @@ public class Comment {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id", nullable = false)
-    private User user; 
+    private User user;  //user who wrote the comment
 
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "blog_id", nullable = false)
-    private Blog blog; 
+    private Blog blog; //blog post this comment belongs to
 
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "parent_id")
-    private Blog parent; 
+    private Comment parent; //parent comment if this is a reply
 
     @OneToMany(mappedBy = "parent", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Comment> replies; 
-
-
-    private User userId; //use relationships, use the userclass
-    private Blog blogId; //use the blog class
-    private Long parentId; //for nested comments (//use the comment class)
+    
+    private String content;
     private LocalDateTime createdAt;
     private LocalDateTime updateddAt;
 }

@@ -2,6 +2,8 @@ package com.blogging.platform.models;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
 import lombok.Data;
@@ -32,10 +34,11 @@ public class User {
     @NotEmpty
     @Size(min = 8, message = "Password should be a minimum of 8 characters")
     @Column(nullable = false)
+    @JsonIgnore //prevents password from being sent in responses
     private String password;
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Comment> blogs;
+    private List<Blog> blogs;
 
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
